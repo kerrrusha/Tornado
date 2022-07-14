@@ -1,0 +1,85 @@
+﻿@using TornadoMVC.Models
+@using TornadoMVC.ViewModels
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().Category_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().old_cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().image_url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().remains)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().creating_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First<Product>().code)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Products) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.old_cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image_url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remains)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creating_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
