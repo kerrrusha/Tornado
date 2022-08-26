@@ -11,6 +11,7 @@ namespace TornadoMVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly TornadoMVCContext _context;
+        private readonly SearchManager searchManager;
 
         // GET: Categories, Product
         public ActionResult Index()
@@ -31,11 +32,28 @@ namespace TornadoMVC.Controllers
         {
             _logger = logger;
             _context = context;
+            searchManager = new SearchManager(_context);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Search(string? query)
+        {
+            if (_context.Category == null)
+                return Problem("Entity set 'TornadoMVCContext.Category'  is null.");
+            if (_context.Product == null)
+                return Problem("Entity set 'TornadoMVCContext.Product'  is null.");
+
+            SearchViewModel viewModel = new SearchViewModel();
+            viewModel.Categories = _context.Category.ToList();
+            viewModel.Products = _context.Product.ToList();
+            viewModel.SearchQuery = query;
+            viewModel.SearchResults = (List<Dataset>?)searchManager.Search(query);
+
+            return View(viewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -44,44 +62,13 @@ namespace TornadoMVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public List<Dataset> getDataSources()
-        {
-            var sources = new List<Dataset>();
-
-            var data = new List<Item>();
-            _context.Category.ToList().ForEach(delegate (Category item)
-            {
-                data.Add(new Item(item.Id, item.Name));
-            });
-            sources.Add(new Dataset("Категорії", data.ToList()));
-
-            data.Clear();
-            _context.Product.ToList().ForEach(delegate (Product item)
-            {
-                data.Add(new Item(item.Id, item.Name));
-            });
-            sources.Add(new Dataset("Товари", data.ToList()));
-
-            data.Clear();
-            _context.Product.ToList().ForEach(delegate (Product item)
-            {
-                data.Add(new Item(item.Id, item.description));
-            });
-            sources.Add(new Dataset("Описи товарів", data.ToList()));
-
-            return sources;
-        }
-
         [HttpGet]
-        public JsonResult Search(string query)
+        public JsonResult SearchJSON(string query)
         {
             List<KeyValuePair<string, List<KeyValuePair<int, string>>>> result;
             try
             {
-                var dataSources = getDataSources();
-                var searchManeger = new SearchManager(dataSources);
-
-                var matches = (List<Dataset>)searchManeger.search(query);
+                var matches = (List<Dataset>)searchManager.Search(query);
 
                 if (matches.Count <= 0)
                 {

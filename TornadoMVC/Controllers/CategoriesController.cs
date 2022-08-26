@@ -38,19 +38,18 @@ namespace TornadoMVC.Controllers
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Category == null)
-            {
-                return NotFound();
-            }
+            if (_context.Category == null)
+                return Problem("Entity set 'TornadoMVCContext.Category'  is null.");
+            if (_context.Product == null)
+                return Problem("Entity set 'TornadoMVCContext.Product'  is null.");
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
+            CategoryViewModel viewModel = new CategoryViewModel();
+            viewModel.Categories = _context.Category.ToList();
+            viewModel.Products = _context.Product.ToList();
+            viewModel.Category = _context.Category.ToList().Find(x => x.Id == id);
+            viewModel.CategoryProducts = _context.Product.ToList().FindAll(x => x.Category_Id == id);
 
-            return View(category);
+            return View(viewModel);
         }
 
         // GET: Categories/Create

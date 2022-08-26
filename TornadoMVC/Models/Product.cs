@@ -16,6 +16,6 @@ namespace TornadoMVC.Models
         [DisplayName("Опис")]
         public string? description { get; set; }
         public DateTime creating_date { get; set; }
-        public int? code { get; set; }
+        public string? code { get; set; }
     }
 }

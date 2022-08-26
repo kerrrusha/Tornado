@@ -1,30 +1,72 @@
-﻿@model TornadoMVC.Models.Category
+﻿@model TornadoMVC.ViewModels.CategoryViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Category.Name;
 }
 
-<h1>Details</h1>
+<main class="d-flex flex-row">
+    <partial name="../_LeftPanel.cshtml" />
 
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DisplayOrder)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <script>
+        var results = [];
+    </script>
+    
+    @foreach(Product product in Model.CategoryProducts)
+    {
+        <script>
+            var data = [];
+            data.push(new Product(
+                        @product.Id, 
+                        hexToString("@product.Name"),
+                        @product.Category_Id,
+                        parseFloat("@product.cost"),
+                        parseFloat("@product.old_cost"),
+                        hexToString("@product.image_url"),
+                        @product.remains,
+                        hexToString("@product.description"),
+                        hexToString("@product.creating_date"),
+                        hexToString("@product.code")
+                    ));
+            results.push(new Dataset("Товари", data));
+        </script>
+    }
+
+    <div class="px-3 w-100">
+        <div class="mt-5">
+            <h2>"@Model.Category.Name"</h2>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <span id="count">Знайдено 0 товарів</span>
+
+            <div>
+                <select id="sortType" name="sortType" class="form-select" onchange="changeSort()">
+                  <option value="relevant">По релевантності</option>
+                  <option value="ascending">Від дешевих до дорогих</option>
+                  <option value="descending">Від дорогих до дешевих</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row mt-3" id="resultsContainer">
+        @foreach(Product product in Model.CategoryProducts)
+        {
+            <div class="col-md-4" >
+                <a style="min-height:4em;" class="card mb-4 box-shadow text-decoration-none text-dark" href="https://google.com">
+                    <img class="mx-auto my-4" src="@product.image_url" width="150">
+                    <div class="card-body">
+                        <p class="card-text" style="min-height:4.5em;">@product.Name</p>
+                        <div class="d-flex flex-row justify-content-between align-flex-end">
+                            <h3>@DataFormatter.PrettyCost(product.cost) ₴</h3>
+                            <button class="btn d-flex align-items-center text-success">
+                                <svg class="bi" width="30" height="30"><use xlink:href="#cart"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+        </div>
+    </div>   
+</main>
+
+<script src="~/js/sort.js" asp-append-version="true"></script>

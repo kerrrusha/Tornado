@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="flex-shrink-0 p-3 bg-white border border-bottom-0 border-top-0" style="width: 280px; min-height: 100%;">
+		    <ul class="list-unstyled ps-0">
+		      <li class="mb-1">
+		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+		          Товары
+		        </button>
+		        <div class="collapse show" id="home-collapse">
+		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+					  @foreach (Category item in Model.Categories) {
+						  <li><a href="/Categories/Details/@item.Id" class="link-dark rounded">@item.Name</a></li>
+					  }
+		          </ul>
+		        </div>
+		      </li>
+		      <li class="mb-1">
+		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+					Информация о компании
+		        </button>
+		        <div class="collapse" id="orders-collapse">
+		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+					<li><a href="/Info/About" class="link-dark rounded">О нас</a></li>
+		            <li><a href="/Info/Contacts" class="link-dark rounded">Контакты</a></li>
+		          </ul>
+		        </div>
+		      </li>
+		      <li class="mb-1">
+		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+					Помощь
+		        </button>
+		        <div class="collapse" id="account-collapse">
+		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+		            <li><a href="/Info/Delivery" class="link-dark rounded">Доставка и оплата</a></li>
+		            <li><a href="/Info/Warranty" class="link-dark rounded">Гарантия и возврат товара</a></li>
+		          </ul>
+		        </div>
+		      </li>
+		    </ul>
+		</div>

@@ -1,0 +1,33 @@
+﻿@using TornadoMVC.Models
+@using TornadoMVC.ViewModels
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Про нас";
+}
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="dash-circle" fill="currentColor"viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+    </symbol>
+    <symbol id="check-circle" fill="currentColor"viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+    </symbol>
+    <symbol id="cart" fill="currentColor"viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+</svg>
+<main>
+<partial name="../_LeftPanel.cshtml" />
+    <div>
+        <div class="row px-5">
+            <h2 class="my-5">Про нас</h2>
+            <p>
+            	Магазин канцелярії "Торнадо" <br>
+                (м. <a href="https://goo.gl/maps/gUk8TfYo5ubC8XJ6A" target="_blank">Суми, Центральний ринок, пал. №144</a>)
+            </p>
+        </div>
+    </div>
+</main>

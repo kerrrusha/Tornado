@@ -7,58 +7,7 @@
 }
 
 <main>
-<div class="flex-shrink-0 p-3 bg-white border border-bottom-0 border-top-0" style="width: 280px; min-height: 100%;">
-		    <ul class="list-unstyled ps-0">
-		      <li class="mb-1">
-		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-		          Товары
-		        </button>
-		        <div class="collapse show" id="home-collapse">
-		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-					  @foreach (Category item in Model.Categories) {
-						  <li><a href="#" class="link-dark rounded">@item.Name</a></li>
-					  }
-		          </ul>
-		        </div>
-		      </li>
-		      <li class="mb-1">
-		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-		          Оплата и доставка
-		        </button>
-		        <div class="collapse" id="dashboard-collapse">
-		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		            <li><a href="#" class="link-dark rounded">Overview</a></li>
-		            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-		            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-		            <li><a href="#" class="link-dark rounded">Annually</a></li>
-		          </ul>
-		        </div>
-		      </li>
-		      <li class="mb-1">
-		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-					Информация о компании
-		        </button>
-		        <div class="collapse" id="orders-collapse">
-		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-					<li><a href="about/about.html" class="link-dark rounded">О нас</a></li>
-		            <li><a href="#" class="link-dark rounded">Контакты</a></li>
-		          </ul>
-		        </div>
-		      </li>
-		      <li class="mb-1">
-		        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-					Помощь
-		        </button>
-		        <div class="collapse" id="account-collapse">
-		          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		            <li><a href="#" class="link-dark rounded">Доставка и оплата</a></li>
-		            <li><a href="#" class="link-dark rounded">Гарантия</a></li>
-		            <li><a href="#" class="link-dark rounded">Возврат товара</a></li>
-		          </ul>
-		        </div>
-		      </li>
-		    </ul>
-		</div>
+	<partial name="../_LeftPanel.cshtml" />
 		<div class="album py-3 px-4 bg-light">
 			<div class="container">`
 			  <div class="row">
@@ -91,13 +40,14 @@
 					<h2 class="my-5">Товары, пользующиеся спросом:</h2>
 					@foreach (Product item in Model.Products) {
 						<div class="col-md-4" >
-						<a style="min-height:4em;" class="card mb-4 box-shadow text-decoration-none text-dark" href="https://google.com">
+						<a style="min-height:4em;" class="card mb-4 box-shadow text-decoration-none text-dark" 
+								asp-controller="Products" asp-action="Details" asp-route-id=@item.Id>
 						  <img class="mx-auto my-4" src="@item.image_url" width="150">
 						  <div class="card-body">
 						  <p class="card-text" style="min-height:4.5em;">@item.Name</p>
 						  <div class="d-flex flex-row justify-content-between align-flex-end">
-							<h3>@Math.Round(item.cost, 2) ₴</h3>
-							<button class="btn d-flex align-items-center color-green">
+							<h3>@DataFormatter.PrettyCost(item.cost) ₴</h3>
+							<button class="btn d-flex align-items-center text-success">
 								<svg class="bi" width="30" height="30"><use xlink:href="#cart"></use></svg>
 							</button>
 						  </div>

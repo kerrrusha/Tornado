@@ -1,0 +1,90 @@
+﻿@using TornadoMVC.Models
+@using TornadoMVC.ViewModels
+@model SearchViewModel
+
+@{
+    ViewData["Title"] = "Пошук";
+}
+
+<main class="d-flex flex-row">
+    <partial name="../_LeftPanel.cshtml" />
+
+    <script>
+        var results = [];
+    </script>
+    
+    @foreach(Dataset result in Model.SearchResults)
+    {
+        <script>
+            var data = [];
+        </script>
+        foreach(Item item in result.data)
+        {
+            if (result.name == "Товари" || result.name == "Описи товарів")
+            {
+                Product? product = Model.Products.ToList<Product>().Find(pr => pr.Id == item.id);
+                <script>
+                    data.push(new Product(
+                        @product.Id, 
+                        hexToString("@product.Name"),
+                        @product.Category_Id,
+                        parseFloat("@product.cost"),
+                        parseFloat("@product.old_cost"),
+                        hexToString("@product.image_url"),
+                        @product.remains,
+                        hexToString("@product.description"),
+                        hexToString("@product.creating_date"),
+                        hexToString("@product.code")
+                    ));
+                </script>
+            }
+            else if (result.name == "Категорії")
+            {
+                List<Product> products = Model.Products.ToList<Product>().FindAll(pr => pr.Category_Id == item.id);
+                foreach(Product product in products)
+                {
+                    <script>
+                        data.push(new Product(
+                            @product.Id, 
+                            hexToString("@product.Name"),
+                            @product.Category_Id,
+                            parseFloat("@product.cost"),
+                            parseFloat("@product.old_cost"),
+                            hexToString("@product.image_url"),
+                            @product.remains,
+                            hexToString("@product.description"),
+                            hexToString("@product.creating_date"),
+                            hexToString("@product.code")
+                        ));
+                    </script>
+                }
+            }
+        }
+        <script>
+            results.push(new Dataset(hexToString("@result.name"), data));
+        </script>
+    }
+
+    <div class="px-3 w-100">
+        <div class="mt-5">
+            <h2>"@Model.SearchQuery"</h2>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <span id="count">Найдено 0 товаров</span>
+
+            <div>
+                <select id="sortType" name="sortType" class="form-select" onchange="changeSort()">
+                  <option value="relevant">По релевантності</option>
+                  <option value="ascending">Від дешевих до дорогих</option>
+                  <option value="descending">Від дорогих до дешевих</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row mt-3" id="resultsContainer">
+            
+        </div>
+    </div>   
+</main>
+
+<script src="~/js/sort.js" asp-append-version="true"></script>

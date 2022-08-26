@@ -1,31 +1,47 @@
-﻿namespace TornadoMVC
+﻿using TornadoMVC.Data;
+using TornadoMVC.Models;
+
+namespace TornadoMVC
 {
     public class SearchManager
     {
         private List<Dataset> data;
+        private readonly TornadoMVCContext _context;
 
-        public SearchManager()
+        public SearchManager(TornadoMVCContext context)
         {
-            data = new List<Dataset>();
-        }
-        public SearchManager(List<Dataset> data)
-        {
-            this.data = data;
+            _context = context;
+            data = GetDataSources();
         }
 
-        public void add(Dataset newSource)
+        private List<Dataset> GetDataSources()
         {
-            foreach (Dataset source in data)
+            var sources = new List<Dataset>();
+
+            var data = new List<Item>();
+            _context.Category.ToList().ForEach(delegate (Category item)
             {
-                if (source.name == newSource.name)
-                {
-                    source.data.AddRange(newSource.data);
-                    return;
-                }
-            }
-            data.Add(newSource);
+                data.Add(new Item(item.Id, item.Name));
+            });
+            sources.Add(new Dataset("Категорії", data.ToList()));
+
+            data.Clear();
+            _context.Product.ToList().ForEach(delegate (Product item)
+            {
+                data.Add(new Item(item.Id, item.Name));
+            });
+            sources.Add(new Dataset("Товари", data.ToList()));
+
+            data.Clear();
+            _context.Product.ToList().ForEach(delegate (Product item)
+            {
+                data.Add(new Item(item.Id, item.description));
+            });
+            sources.Add(new Dataset("Описи товарів", data.ToList()));
+
+            return sources;
         }
-        public IEnumerable<Dataset> search(string query)
+        public IEnumerable<Dataset> Search(string query)
         {
             var result = new List<Dataset>();
 

@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<base href="home" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tornado</title>
@@ -47,7 +48,7 @@
 			054 278-74-24, 054 278-75-80
 		</div>
 		<div>
-			<a href="https://goo.gl/maps/sRSgRGZ4FT5VPm6r8" target="_blank">Сумы, улица Горького, 26</a>
+			<a href="https://goo.gl/maps/gUk8TfYo5ubC8XJ6A" target="_blank">Суми, Центральний ринок, пал. №144</a>
 		</div>
 		<div>
 			Пн-Пт (9:00 - 18:00)
@@ -75,59 +76,14 @@
 				</button>
 				<ul class="list-unstyled dropdown-menu" aria-labelledby="dropdownMenuButton1">
 					@foreach (Category item in Model.Categories) {
-					  <li><a href="#" class="small dropdown-item">@item.Name</a></li>
+					  <li><a href="/Categories/Details/@item.Id" class="small dropdown-item">@item.Name</a></li>
 					}
 				</ul>
 			</div>
 		</li>
         <li>
+		<script src="~/js/search.js"></script>
 		<script>
-			function unicodeToChar(text) {
-			   return text.replace(/\\u[\dA-F]{4}/gi, 
-					  function (match) {
-						   return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
-					  });
-			}
-			function markMatches(text, query) {
-				function getPositions(t, q) {
-					positions = [];
-					var pos = -2;
-					var _t = t;
-					while(1) {
-						if (positions.length === 0)
-							_t = t;
-						else
-							_t = t.slice(positions[positions.length-1]);
-						pos = _t.search(q);
-						if (pos === -1)
-							break;
-						if (_t !== t)
-							pos += positions[positions.length-1];
-						positions.push(pos);
-						positions.push(pos + query.length);
-					}
-					return positions;
-				}
-
-				let positionsToInsertTag = getPositions(text.toLowerCase(), query.toLowerCase());
-
-				let i = 0;
-				let tag = '';
-				let extra = 0;
-				positionsToInsertTag.forEach(pos => {
-					if (i % 2 !== 0)
-						tag = '</strong>';
-					else
-						tag = '<strong>';
-					pos += extra;
-					text = text.slice(0, pos) + tag + text.slice(pos);
-					extra += tag.length;
-					i += 1;
-				});
-
-				return text;
-}
-
 			function processSearch() {
 				let input = document.getElementById('searchInput');
 				let query = input.value;
@@ -136,67 +92,40 @@
 				}
 				$.ajax({
 					type: 'GET',
-					url: '@Url.Action("Search", "Home")',
+					url: '@Url.Action("SearchJSON", "Home")',
 					dataType: 'json',
 					data: { query: query },
 					success: function (data) {
-						let answer = {
-							"foundIn": [],
-							"foundWhat": []
-						}
-						data.value.forEach(keyValue => {
-							let foundIn = "Знайдено в \"" + keyValue.key + "\":";
-							answer['foundIn'].push(foundIn);
-
-							var matches = "";
-							keyValue.value.forEach(item => {
-								matches += "id=" + item.key + ": " + markMatches(item.value, query) + "\n";
-							});
-							answer['foundWhat'].push(matches);
-
-							let list = document.getElementById('searchResultsList');
-							while (list.firstChild) {
-								list.removeChild(list.lastChild);
-							}
-							
-							toBeInserted = [foundIn, matches]
-							toBeInserted.forEach(elem => {
-								const li = document.createElement("li");
-								li.classList = 'dropdown-item';
-								list.appendChild(li);
-								li.innerHTML = elem;
-							});
-						});
-						console.log(answer)
+						let list = document.getElementById('searchResultsList');
+						clearList(list);
+						printAnswer(data, query, list);
 					},
 					error: function (error) {
 						console.log("Error: " + error.value);
 					}
 				})
 			}
-
-			function submitSearch() {
-				search();
-				event.preventDefault();
-			}
 		</script>
         	<nav class="ms-3 p-0 navbar navbar-light">
 			  <div class="dropdown">				  
-			    <form class="d-flex p-0" id="searchForm" method="post">
+			    <div class="d-flex p-0" id="searchForm">
 					<input class="form-control" id="searchInput" 
 						data-bs-toggle="dropdown" aria-expanded="false" placeholder="Я ищу..." 
 						aria-label="Search" style="width:20rem!important;"
-						oninput="processSearch()"
+						oninput="processSearch()" onclick="processSearch()"
+						onkeydown = "if (event.keyCode == 13) {
+							submitSearch();
+						}"    
 					>
-				    <ul class="dropdown-menu" id="searchResultsList" aria-labelledby="search" style="width:20rem!important;">
+				    <ul class="dropdown-menu" id="searchResultsList" aria-labelledby="search" style="width:25rem!important; font-size:0.875rem!important">
 					  <li class="dropdown-item">
 						  
 					  </li>
 				    </ul>
-					<button class="btn" type="submit" id="searchSubmit" onclick="submitSearch()" style="position: relative; right:40px;">
+					<button class="btn" id="searchSubmit" onclick="submitSearch()" style="position: relative; right:40px;">
 			      	  <svg class="bi" width="18" height="18"><use xlink:href="#search"></use></svg>
 			        </button>
-			    </form>
+			    </div>
 			  </div>
 			</nav>
         </li>

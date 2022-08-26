@@ -28,3 +28,35 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
+function hexToString(hexEncoded) {
+    let REG_HEX = /&#x([a-fA-F0-9]+);/g;
+
+    let decoded = hexEncoded.replace(REG_HEX, function (match, group1) {
+        let num = parseInt(group1, 16); //=> 39
+        return String.fromCharCode(num); //=> '
+    });
+
+    return decoded;
+}
+
+class Product {
+    constructor(id, name, category_id, cost, old_cost, image_url, remains, description, creating_date, code) {
+        this.id = id;
+        this.name = name;
+        this.category_id = category_id;
+        this.cost = cost;
+        this.old_cost = old_cost;
+        this.image_url = image_url;
+        this.remains = remains;
+        this.description = description;
+        this.creating_date = creating_date;
+        this.code = code;
+    }
+}
+
+class Dataset {
+    constructor(name, data) {
+        this.name = name;
+        this.data = data;
+    }
+};

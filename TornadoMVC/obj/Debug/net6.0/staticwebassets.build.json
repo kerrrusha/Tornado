@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NZMZKajbbbfSHNTwIuHR/Rhlq/yl8D+6F/CGQDQajsw=",
+  "Hash": "4aXdTuPX1kdqXYMjPYCdDAhzYCUOCIrLUMHNas2Soys=",
   "Source": "TornadoMVC",
   "BasePath": "_content/TornadoMVC",
   "Mode": "Default",
@@ -340,6 +340,23 @@
       "OriginalItemSpec": "wwwroot\\js\\popper.min.js.map"
     },
     {
+      "Identity": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\js\\search.js",
+      "SourceId": "TornadoMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\",
+      "BasePath": "_content/TornadoMVC",
+      "RelativePath": "js/search.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\search.js"
+    },
+    {
       "Identity": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\js\\sidebars.js",
       "SourceId": "TornadoMVC",
       "SourceType": "Discovered",
@@ -372,6 +389,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\js\\sort.js",
+      "SourceId": "TornadoMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\",
+      "BasePath": "_content/TornadoMVC",
+      "RelativePath": "js/sort.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sort.js"
+    },
+    {
+      "Identity": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\js\\validation.js",
+      "SourceId": "TornadoMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\",
+      "BasePath": "_content/TornadoMVC",
+      "RelativePath": "js/validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\validation.js"
     },
     {
       "Identity": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
