@@ -23,6 +23,46 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>  
 
 	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/search.js" asp-append-version="true"></script>
+	<script>
+		function processSignout() {
+			$.ajax({
+				type: 'POST',
+				url: '@Url.Action("Signout", "Auth")',
+				dataType: 'json',
+				data: {},
+				success: function (jsonAnswerObject) {
+					console.log(jsonAnswerObject);
+					location.reload(true);
+				},
+				error: function (error) {
+					console.log("Error: " + error.value);
+				}
+			})
+		}
+
+		function processSearch() {
+			let input = document.getElementById('searchInput');
+			let query = input.value;
+			if (typeof query == 'undefined') {
+				query = "";
+			}
+			$.ajax({
+				type: 'GET',
+				url: '@Url.Action("SearchJSON", "Home")',
+				dataType: 'json',
+				data: { query: query },
+				success: function (data) {
+					let list = document.getElementById('searchResultsList');
+					clearList(list);
+					printAnswer(data, query, list);
+				},
+				error: function (error) {
+					console.log("Error: " + error.value);
+				}
+			})
+		}
+	</script>
 </head>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -82,30 +122,6 @@
 			</div>
 		</li>
         <li>
-		<script src="~/js/search.js"></script>
-		<script>
-			function processSearch() {
-				let input = document.getElementById('searchInput');
-				let query = input.value;
-				if (typeof query == 'undefined') {
-					query = "";
-				}
-				$.ajax({
-					type: 'GET',
-					url: '@Url.Action("SearchJSON", "Home")',
-					dataType: 'json',
-					data: { query: query },
-					success: function (data) {
-						let list = document.getElementById('searchResultsList');
-						clearList(list);
-						printAnswer(data, query, list);
-					},
-					error: function (error) {
-						console.log("Error: " + error.value);
-					}
-				})
-			}
-		</script>
         	<nav class="ms-3 p-0 navbar navbar-light">
 			  <div class="dropdown">				  
 			    <div class="d-flex p-0" id="searchForm">
@@ -132,12 +148,29 @@
       </ul>
 
 	  <div class="d-flex flex-row">
-        	<a href="~/Auth/Signup" class="btn d-flex align-items-center">
-        		<svg class="bi" width="30" height="30"><use xlink:href="#person"></use></svg>
-        	</a>
-			<a class="btn d-flex align-items-center">
-        		<svg class="bi" width="30" height="30"><use xlink:href="#cart"></use></svg>
-        	</a>
+			<div class="dropdown">
+			  <button class="btn d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<svg class="bi" width="30" height="30"><use xlink:href="#person"></use></svg>
+			  </button>
+			  <ul class="dropdown-menu">
+				@{
+					if (Context.Request.Cookies.ContainsKey("uid"))
+					{
+						<li><a class="dropdown-item" href="~/User/ProfileInfo">Мій профіль</a></li>
+						<li><a class="dropdown-item" href="#">Кошик</a></li>
+						<li><a class="dropdown-item" href="#">Мої замовлення</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><button class="dropdown-item" onclick="processSignout()">Вийти</button></li>
+					} else {
+						<li><a class="dropdown-item" href="~/Auth/Signin">Увійти</a></li>
+						<li><a class="dropdown-item" href="~/Auth/Signup">Зареєструватись</a></li>
+					}
+				}
+			  </ul>
+			</div>
+			<button class="btn d-flex align-items-center">
+        		<svg class="bi" width="28" height="28"><use xlink:href="#cart"></use></svg>
+        	</button>
       </div>
     </header>
     <div class="">
@@ -148,7 +181,6 @@
     <script src="~/js/popper.min.js"></script>
 	<script src="~/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/sidebars.js"></script>
-	<script src="~/js/site.js"></script>
 	<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

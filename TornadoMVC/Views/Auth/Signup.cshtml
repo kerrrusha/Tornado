@@ -31,6 +31,8 @@
         let address = document.getElementById('address');
         let department = document.getElementById('department');
 
+        console.log("registering new user: " + email.value);
+
         user = new User(
             email.value, 
             phone.value, 
@@ -44,16 +46,30 @@
 
         userJSON = JSON.stringify(user);
 
-		console.log("submitting new user:");
-        console.log(userJSON);
-
-		$.ajax({
+       $.ajax({
 		    type: 'POST',
 			url: '@Url.Action("Register", "Auth")',
 			dataType: 'json',
 			data: { userJSON },
 			success: function (jsonAnswerObject) {
-			    console.log("successfully sent: " + jsonAnswerObject.value);
+			    console.log(jsonAnswerObject);
+                let registerFormContainer = document.getElementById("registerFormContainer");
+                if (jsonAnswerObject.statusCode == 200) {
+                    registerFormContainer.innerHTML = '<div class="d-flex flex-column align-items-center justify-content-center">'+
+        		        '<div class="alert alert-success w-75" role="alert">'+
+				          '<h3>Реєстрація успішна!</h3>'+
+				        '</div>'+
+				        '<a class="w-50 btn btn-primary my-3 mx-auto" href="/">На головну</a>'+
+        	        '</div>';
+                } else {
+                    registerFormContainer.innerHTML = '<div class="d-flex flex-column align-items-center justify-content-center">'+
+        		        '<div class="alert alert-danger w-75" role="alert">'+
+				          '<h3>Під час реєстрації виникла помилка:</h3>'+
+				          jsonAnswerObject.message+
+				        '</div>'+
+				        '<button class="w-50 btn btn-primary my-3 mx-auto" onclick="location.reload();">Спробувати ще раз</button>'+
+        	        '</div>';
+                }
 			},
 			error: function (error) {
 			    console.log("Error: " + error.value);
@@ -94,7 +110,7 @@
         <h2>Реєстрація</h2>
     </div>
 
-        <div class="col-8 mx-auto">
+        <div class="col-8 mx-auto" id="registerFormContainer">
             <form class="needs-validation" id="registerForm" onsubmit="if (formIsValid()) return processRegister(); 
                 else return false;" novalidate>
                 <div class="row g-3">
@@ -170,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <button onclick="return fillInputsDebug()">FILL INPUTS CORRECT WAY</button>
+                <!--<button onclick="return fillInputsDebug()">FILL INPUTS CORRECT WAY</button>-->
                 <button class="w-100 btn btn-primary btn-lg my-5" type="submit">Зареєструватися</button>
             </form>
         </div>

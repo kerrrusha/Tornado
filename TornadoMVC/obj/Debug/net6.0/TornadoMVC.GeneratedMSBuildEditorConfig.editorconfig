@@ -8,113 +8,117 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TornadoMVC
 build_property.RootNamespace = TornadoMVC
-build_property.ProjectDir = C:\Users\kerrrusha\source\repos\Tornado\TornadoMVC\
+build_property.ProjectDir = C:\Users\kerrrusha\source\web\asp.net\Tornado\TornadoMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kerrrusha\source\repos\Tornado\TornadoMVC
+build_property.MSBuildProjectDirectory = C:\Users\kerrrusha\source\web\asp.net\Tornado\TornadoMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Auth/Signin.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Auth/Signin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxTaWduaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Auth/Signup.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Auth/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Categories/Create.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Categories/Delete.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Categories/Details.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Categories/Edit.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Categories/Index.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Home/Index.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Home/Privacy.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Home/Search.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Home/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Info/About.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Info/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Info/Contacts.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Info/Contacts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xDb250YWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Info/Delivery.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Info/Delivery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xEZWxpdmVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Info/Warranty.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Info/Warranty.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xXYXJyYW50eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Products/Create.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Products/Delete.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Products/Details.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Products/Edit.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Products/Index.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Shared/Error.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Shared/Index.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Shared/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/_LeftPanel.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/User/ProfileInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/_LeftPanel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX0xlZnRQYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/_ViewImports.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/_ViewStart.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerrrusha/source/repos/Tornado/TornadoMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/kerrrusha/source/web/asp.net/Tornado/TornadoMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-astup6ed46

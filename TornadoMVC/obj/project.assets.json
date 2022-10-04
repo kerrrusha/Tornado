@@ -9667,11 +9667,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\TornadoMVC.csproj",
+      "projectUniqueName": "C:\\Users\\kerrrusha\\source\\web\\asp.net\\Tornado\\TornadoMVC\\TornadoMVC.csproj",
       "projectName": "TornadoMVC",
-      "projectPath": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\TornadoMVC.csproj",
+      "projectPath": "C:\\Users\\kerrrusha\\source\\web\\asp.net\\Tornado\\TornadoMVC\\TornadoMVC.csproj",
       "packagesPath": "C:\\Users\\kerrrusha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kerrrusha\\source\\repos\\Tornado\\TornadoMVC\\obj\\",
+      "outputPath": "C:\\Users\\kerrrusha\\source\\web\\asp.net\\Tornado\\TornadoMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kerrrusha\\AppData\\Roaming\\NuGet\\NuGet.Config",

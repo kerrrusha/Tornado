@@ -60,3 +60,7 @@ class Dataset {
         this.data = data;
     }
 };
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}

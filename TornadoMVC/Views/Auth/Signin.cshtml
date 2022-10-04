@@ -6,14 +6,70 @@
     ViewData["Title"] = "Вхід";
 }
 
+<script>
+    class UserCredentials {
+        constructor(email, password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+
+    function processAuthorize() {
+	    let email = $("#email").val();
+        let password = $("#password").val();
+        
+        console.log("authorizing user: " + email);
+        
+        userCredentials = new UserCredentials(
+            email, 
+            password, 
+        );  
+        
+        userCredentialsJson = JSON.stringify(userCredentials);
+        
+       $.ajax({
+		    type: 'POST',
+			url: '@Url.Action("Authorize", "Auth")',
+			dataType: 'json',
+			data: { userCredentialsJson },
+			success: function (jsonAnswerObject) {
+			    console.log(jsonAnswerObject);
+                let formContainer = document.getElementById("authFormContainer");
+                if (jsonAnswerObject.statusCode == 200) {
+                    formContainer.innerHTML = '<div class="d-flex flex-column align-items-center justify-content-center">'+
+        		        '<div class="alert alert-success w-75" role="alert">'+
+				          '<h3>Авторизації успішна!</h3>'+
+				        '</div>'+
+				        '<a class="w-50 btn btn-primary my-3 mx-auto" href="/">На головну</a>'+
+        	        '</div>';
+                } else {
+                    formContainer.innerHTML = '<div class="d-flex flex-column align-items-center justify-content-center">'+
+        		        '<div class="alert alert-danger w-75" role="alert">'+
+				          '<h3>Під час авторизації виникла помилка:</h3>'+
+				          jsonAnswerObject.message+
+				        '</div>'+
+				        '<button class="w-50 btn btn-primary my-3 mx-auto" onclick="location.reload();">Спробувати ще раз</button>'+
+        	        '</div>';
+                }
+			},
+			error: function (error) {
+			    console.log("Error: " + error.value);
+			}
+		})
+
+        return false;
+	}
+</script>
+
 <main class="container d-flex flex-column">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="~/img/short_logo.png" alt="" width="100" height="100">
         <h2>Вхід</h2>
     </div>
 
-        <div class="col-8 mx-auto">
-            <form class="needs-validation" id="registerForm" onsubmit="return formIsValid()" novalidate>
+        <div class="col-8 mx-auto" id="authFormContainer">
+            <form class="needs-validation" id="authForm" onsubmit="if (formAuthIsValid()) return processAuthorize(); 
+                else return false;" novalidate>
                 <div class="col-sm-6 mx-auto mb-3">
                     <label for="email" class="form-label" id="emailLabel">Пошта</label>
                     <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
@@ -22,7 +78,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 mx-auto">
-                    <label for="password" id='phoneLabel' class="form-label">Пароль</label>
+                    <label for="password" id='passwordLabel' class="form-label">Пароль</label>
                     <input type="password" class="form-control" id="password" placeholder="" required>
                     <div class="invalid-feedback">
                         Невірний пароль

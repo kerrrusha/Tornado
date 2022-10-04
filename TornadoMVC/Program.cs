@@ -1,7 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TornadoMVC.Data;
-var builder = WebApplication.CreateBuilder(args);
+
+var options = new WebApplicationOptions
+{
+    Args = args,
+    ContentRootPath = AppContext.BaseDirectory
+};
+var builder = WebApplication.CreateBuilder(options);
 builder.Services.AddDbContext<TornadoMVCContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TornadoMVCContext") ?? throw new InvalidOperationException("Connection string 'TornadoMVCContext' not found.")));
 

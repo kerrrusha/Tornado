@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tornado</title>
+    <link rel="stylesheet" href="css/style.css" asp-append-version="true" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/" asp-append-version="true" />
+    <link href="css/sidebars.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+    <!-- JS Validator -->
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+
+    <style>
+    	#profile-info tr {
+    		height: 100px!important;
+    	}
+    </style>
+</head>
+<body>
+<main class="container d-flex flex-column">
+	<h2 class="mt-5">Мій профіль</h2>
+    <table class="table table-borderless mt-4" id="profile-info">
+        <tbody>
+		    <tr>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">Прізвище</p>
+		      	<span>Зеленський</span>
+		      </td>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">Ім'я</p>
+		      	<span>Володимир</span>
+		      </td>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">По-батькові</p>
+		      	<span>Александрович</span>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">Номер телефону</p>
+		      	<span>+3801234567890</span>
+		      </td>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">Пошта</p>
+		      	<span>example@mail.net</span>
+		      </td>
+		      <td>
+		      	<p class="text-muted fs-6 my-2">Пароль</p>
+		      	<span><a href="#">Змінити пароль</a></span>
+		      </td>
+		    </tr>
+		</tbody>
+    </table>
+
+    <div class="mt-5 d-flex flex-row justify-content-between">
+    	<div class="">
+    		<h2>Адреса доставки</h2>
+    	</div>
+    	<div class="">
+    		<button class="btn btn-success">Редагувати</button>
+    	</div>
+    </div>
+    <p class="text-muted fs-6 mt-0 mb-3">(дані за замовчуванням)</p>
+    <div class="row">
+    	<div class="col m-6">
+    		<p class="text-muted fs-6 my-2">Місто</p>
+		    <span>Київ</span>
+    	</div>
+    	<div class="col m-6">
+    		<p class="text-muted fs-6 my-2">№ відділення Нової пошти</p>
+		    <span>10</span>
+    	</div>
+    </div>
+</main>
+
+<script src="js/site.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

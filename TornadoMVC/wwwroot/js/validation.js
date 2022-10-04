@@ -173,6 +173,49 @@ function formIsValid() {
     return invalid.length == 0;
 }
 
+function formAuthIsValid() {
+    let form = document.getElementById("authForm")
+
+    let email = new Field("email", "emailLabel")
+    let password = new Field("password", "passwordLabel")
+
+    let fields = [email, password]
+
+    let invalid = []
+
+    fields.forEach(field => {
+        if (field.isEmpty())
+            invalid.push(field)
+    })
+
+    invalid.forEach(field => {
+        field.markAsInvalid()
+    })
+
+    function getValid(fields, invalid_) {
+        let valid = []
+        fields.forEach(field => {
+            let fieldIsInvalid = false
+            invalid_.forEach(invField => {
+                if (field.id == invField.id) {
+                    fieldIsInvalid = true
+                    return
+                }
+            })
+            if (!fieldIsInvalid)
+                valid.push(field)
+        })
+        return valid
+    }
+    let valid = getValid(fields, invalid)
+        valid.forEach(field => {
+           field.markAsValid()
+    })
+
+    return invalid.length == 0;
+}
+
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 function bootstrapFormValidation() {
     'use strict'
